@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .container{
+        height: 97vh;
+        display: grid;
+        grid-template-columns: repeat(auto-fill,minmax(150px,1fr)); /*auto-fill se bachi hui space adjust ho jaati hai*/
+        grid-template-rows: 100px 100px 100px; /*can write it as repeat(3,1fr)*/
+        gap: 3%;
+    }
+    .container>div{
+        outline: 1px solid black;
+
+    }
+</style>
+<body>
+    <div class="container">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+        <div>5</div>
+        <div>6</div>
+        <div>7</div>
+        <div>8</div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div::before{
+            content: "a";
+            color: black;
+        }
+        div::after{
+            content: "b";
+            color: black;
+        }
+        input::placeholder{
+            color:blue;
+        }
+        p::selection{
+            background-color: black;
+            color: white;
+        }
+        p::first-letter{
+            font-size:50px;
+            font-weight:900;
+            color: brown;
+        }
+        p::first-line {
+           color: green;
+           font-weight: bold;
+        }
+        p::before {
+           content: "🐕 ";
+        }
+    </style>
+</head>
+<body>
+    <div>Div</div>
+    <input type="text" placeholder="Text"/>
+    <p>Once upon a time, a small brown dog lived near a quiet green hill.
+    He loved to chase bright yellow butterflies through the tall grass.
+    Every afternoon, he found a cool shady spot under a big oak tree and took a long nap.
+    He woke up only when the warm sun began to set in the pink evening sky.</p>
+    
+</body>
+</html>

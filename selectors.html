@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+     *{
+        margin: 0px;
+        padding: 0px;
+        background-color: antiquewhite;
+    }
+
+    h2{
+        color:aquamarine;
+    }
+    input[type=email]{
+        border-radius:15px;
+    }
+    li[data=mydata]{
+        background: yellow;
+    }
+    #my_id{
+        color:rgb(238, 71, 71) ;
+    }
+    .myclass{
+        font-size: 20px;
+    }
+    li:has(span){ /* use of pseudoclasses*/
+        color: rgb(102, 72, 233);
+    }
+    
+        
+    </style>
+</head>
+<body>
+    <h2> SELECTORS</h2>
+    <ul>
+        <li>universal</li> <!--(*) → Selects all elements on the page-->
+        <li>id</li>    <!--(#id) → Selects one specific HTML element using its unique id attribute-->
+        <li>class</li>   <!--(.class) → Selects all HTML elements that have the specified class attribute.-->
+        <li>attribute</li>   <!--([attribute]) → Selects elements based on a specific attribute-->
+        <li>element</li>   <!--(p, h1, div) → Selects all elements of a particular HTML tag-->
+        <li>conbination</li> <!---->
+        <li>pseudo class <span></span></li>  <!---->
+        <li>pseudo elements</li>   <!----> 
+        <li id="my_id">ID</li>
+        <li class="myclass">Class</li>
+    </ul>
+    
+    <input type="email" placeholder="Email"/> <br>
+    <input type="password" placeholder="password"/> 
+</body>
+</html>

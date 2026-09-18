@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<style>
+.body{
+    font-family:Arial;
+    background:lightgray;
+}
+
+.main{
+    display:flex;
+    width:90%;
+    margin:30px auto;
+    background:lightblue;
+}
+
+
+.content{
+    flex:1;
+    padding:20px;
+    background: lightcyan;
+}
+
+.cards{
+    display:flex;
+    gap:15px;
+    margin:20px 0;
+    background:lightyellow;
+}
+
+.card{
+    flex:1;
+    border:1px solid gray;
+    text-align:center;
+    padding:20px;
+    background:lightcyan;
+}
+
+
+
+</style>
+<body>
+
+<div class="main">
+
+    <div class="sidebar">
+        <h2>Dashboard</h2>
+
+        <p>Dashboard</p>
+        <p>Users</p>
+        <p>Products</p>
+        <p>Orders</p>
+        <p>Settings</p>
+    </div>
+
+    <div class="content">
+
+        <h2>Dashboard Overview</h2>
+
+        <div class="cards">
+
+            <div class="card">
+                <h3>Users</h3>
+                <h1>1245</h1>
+            </div>
+
+            <div class="card">
+                <h3>Products</h3>
+                <h1>356</h1>
+            </div>
+
+            <div class="card">
+                <h3>Orders</h3>
+                <h1>789</h1>
+            </div>
+
+            <div class="card">
+                <h3>Revenue</h3>
+                <h1>₹245000</h1>
+            </div>
+
+        </div>
+
+        <table border="1">
+            <tr>
+                <th>Order ID</th>
+                <th>Name</th>
+                <th>Amount</th>
+            </tr>
+
+            <tr>
+                <td>001</td>
+                <td>Rahul</td>
+                <td>₹1200</td>
+            </tr>
+
+            <tr>
+                <td>002</td>
+                <td>Priya</td>
+                <td>₹900</td>
+            </tr>
+
+            <tr>
+                <td>003</td>
+                <td>Amit</td>
+                <td>₹1500</td>
+            </tr>
+
+        </table>
+
+    </div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,6 @@
+@config "../tailwind.config.js";
+@import "tailwindcss";
+
+.heading {
+    @apply text-4xl font-bold underline text-amber-100 text-center;
+}

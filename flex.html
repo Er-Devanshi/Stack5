@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .container{
+        outline: 2px solid black;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;/*main access
+        align-items: center;/*cross access*/
+        flex-wrap: wrap;
+    }
+    .container>div{
+        background-color: rgb(4, 4, 4);
+        color: white;
+        flex-basis: 100px; /*width use kr skte hai pr flex-basis flexible hai */
+        height: 100px;
+        align-content: center;
+        text-align: center;
+        
+
+    }
+    #box1{
+        background-color: rgb(141, 207, 141);
+        flex: 1 0 150px;
+    }
+    #box2{
+        background-color: rgb(240, 195, 135);
+        flex: 1 0 150px;
+    }
+    #box3{
+        background-color: rgb(180, 138, 218);
+        flex: 1 0 150px;
+    }
+    #box4{
+        background-color: rgb(114, 178, 227);
+        flex: 2 0 150px;
+    }
+    #box5{
+        background-color: rgb(232, 153, 250);
+        flex: 1 0 150px;
+    }
+    #box6{
+        background-color: rgb(243, 133, 180);
+        flex: 1 0 150px;
+    }
+</style>
+<body>
+    <div class="container">
+        <div id="box1">1</div>
+        <div id="box2">2</div>
+        <div id="box3">3</div>
+        <div id="box4">4</div>
+        <div id="box5">5</div>
+        <div id="box6">6</div>
+    </div>
+</body>
+</html>
