@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>FlowTask - SaaS Landing Page</title>
+
+    <style>
+
+        /* =========================
+           BASIC SETTINGS
+        ========================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            color: #18253a;
+            background-color: white;
+        }
+
+
+        /* =========================
+           NAVBAR
+        ========================= */
+
+        .navbar {
+            width: 90%;
+            max-width: 1200px;
+
+            margin: 20px auto;
+            padding: 15px 20px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            border: 1px solid #e5e9f0;
+            border-radius: 12px;
+
+            background-color: white;
+        }
+
+        /* Logo */
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+
+            font-weight: bold;
+        }
+
+        .logo-icon {
+            width: 30px;
+            height: 30px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background-color: #3657e8;
+            color: white;
+
+            border-radius: 7px;
+        }
+
+
+        /* Navigation */
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #68758a;
+
+            font-size: 14px;
+        }
+
+        .nav-links a:hover {
+            color: #3657e8;
+        }
+
+
+        /* Right side */
+
+        .nav-buttons {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .login {
+            text-decoration: none;
+            color: #18253a;
+
+            font-size: 14px;
+        }
+
+        .get-started {
+            text-decoration: none;
+            color: white;
+
+            background-color: #3657e8;
+
+            padding: 10px 16px;
+
+            border-radius: 7px;
+
+            font-size: 14px;
+        }
+
+
+        /* Mobile menu */
+
+        .menu-icon {
+            display: none;
+            font-size: 22px;
+        }
+
+
+        /* =========================
+           HERO SECTION
+        ========================= */
+
+        .hero {
+            width: 90%;
+            max-width: 1200px;
+
+            margin: 50px auto;
+            padding: 50px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            gap: 50px;
+
+            background-color: #f5f8ff;
+
+            border-radius: 20px;
+        }
+
+
+        /* Left side */
+
+        .hero-content {
+            width: 50%;
+        }
+
+        .small-title {
+            display: inline-block;
+
+            background-color: #e5ebff;
+            color: #3657e8;
+
+            padding: 6px 12px;
+
+            border-radius: 20px;
+
+            font-size: 12px;
+            font-weight: bold;
+
+            margin-bottom: 15px;
+        }
+
+        .hero h1 {
+            font-size: 42px;
+            line-height: 1.2;
+
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            color: #68758a;
+
+            font-size: 15px;
+            line-height: 1.6;
+
+            max-width: 500px;
+
+            margin-bottom: 25px;
+        }
+
+
+        /* Hero buttons */
+
+        .hero-buttons {
+            display: flex;
+            gap: 12px;
+        }
+
+        .primary-btn,
+        .secondary-btn {
+            text-decoration: none;
+
+            padding: 12px 20px;
+
+            border-radius: 8px;
+
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .primary-btn {
+            background-color: #3657e8;
+            color: white;
+        }
+
+        .secondary-btn {
+            background-color: white;
+            color: #3657e8;
+
+            border: 1px solid #3657e8;
+        }
+
+
+        /* =========================
+           DASHBOARD
+        ========================= */
+
+        .dashboard {
+            width: 45%;
+            max-width: 430px;
+
+            padding: 20px;
+
+            background-color: white;
+
+            border-radius: 15px;
+
+            box-shadow: 0 15px 40px rgba(40, 70, 150, 0.12);
+        }
+
+
+        /* Dashboard header */
+
+        .dashboard-header {
+            display: flex;
+            justify-content: space-between;
+
+            font-size: 13px;
+            font-weight: bold;
+
+            margin-bottom: 25px;
+        }
+
+        .dashboard-button {
+            color: #8995a8;
+        }
+
+
+        /* Chart */
+
+        .chart-area {
+            padding: 15px;
+
+            border: 1px solid #edf0f5;
+
+            border-radius: 10px;
+        }
+
+        .chart-label {
+            display: flex;
+            justify-content: space-between;
+
+            margin-bottom: 20px;
+
+            font-size: 12px;
+        }
+
+        .chart-label strong {
+            color: #3657e8;
+        }
+
+
+        /* Graph */
+
+        .graph {
+            height: 140px;
+
+            display: flex;
+            align-items: flex-end;
+
+            gap: 15px;
+        }
+
+        .bar {
+            width: 35px;
+
+            background-color: #3657e8;
+
+            border-radius: 5px 5px 0 0;
+        }
+
+        .bar1 {
+            height: 40%;
+        }
+
+        .bar2 {
+            height: 60%;
+        }
+
+        .bar3 {
+            height: 45%;
+        }
+
+        .bar4 {
+            height: 75%;
+        }
+
+        .bar5 {
+            height: 65%;
+        }
+
+        .bar6 {
+            height: 90%;
+        }
+
+
+        /* Dashboard bottom */
+
+        .dashboard-bottom {
+            display: flex;
+            gap: 30px;
+
+            margin-top: 20px;
+        }
+
+        .dashboard-bottom div {
+            display: flex;
+            flex-direction: column;
+
+            gap: 5px;
+        }
+
+        .dashboard-bottom small {
+            color: #8995a8;
+        }
+
+        .dashboard-bottom strong {
+            font-size: 18px;
+        }
+
+
+        /* =========================
+           FEATURES
+        ========================= */
+
+        .features {
+            width: 90%;
+            max-width: 1200px;
+
+            margin: 70px auto;
+        }
+
+
+        /* Heading */
+
+        .section-heading {
+            text-align: center;
+
+            margin-bottom: 35px;
+        }
+
+        .section-heading h2 {
+            font-size: 28px;
+
+            margin-bottom: 10px;
+        }
+
+        .section-heading p {
+            color: #7a8799;
+
+            font-size: 14px;
+        }
+
+
+        /* Cards */
+
+        .feature-container {
+            display: grid;
+
+            grid-template-columns: repeat(3, 1fr);
+
+            gap: 25px;
+        }
+
+        .feature-card {
+            padding: 25px;
+
+            border: 1px solid #e5e9f0;
+
+            border-radius: 12px;
+
+            background-color: white;
+        }
+
+        .feature-card:hover {
+            box-shadow: 0 10px 30px rgba(30, 60, 120, 0.1);
+
+            transform: translateY(-5px);
+        }
+
+
+        /* Feature icons */
+
+        .feature-icon {
+            width: 42px;
+            height: 42px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background-color: #eef2ff;
+
+            border-radius: 10px;
+
+            font-size: 20px;
+
+            margin-bottom: 18px;
+        }
+
+        .feature-card h3 {
+            font-size: 17px;
+
+            margin-bottom: 10px;
+        }
+
+        .feature-card p {
+            color: #7a8799;
+
+            font-size: 13px;
+
+            line-height: 1.6;
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            text-align: center;
+
+            padding: 25px;
+
+            background-color: #f7f9fc;
+
+            color: #7a8799;
+
+            font-size: 13px;
+        }
+
+
+        /* =========================
+           TABLET
+        ========================= */
+
+        @media (max-width: 900px) {
+
+            .hero {
+                padding: 35px;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .dashboard {
+                width: 48%;
+            }
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 640px) {
+
+            /* Hide desktop navigation */
+
+            .nav-links,
+            .nav-buttons {
+                display: none;
+            }
+
+            /* Show menu */
+
+            .menu-icon {
+                display: block;
+            }
+
+
+            /* Hero */
+
+            .hero {
+                flex-direction: column;
+
+                padding: 30px 20px;
+
+                text-align: left;
+            }
+
+            .hero-content {
+                width: 100%;
+            }
+
+            .hero h1 {
+                font-size: 30px;
+            }
+
+            .hero p {
+                font-size: 14px;
+            }
+
+            .dashboard {
+                width: 100%;
+            }
+
+
+            /* Feature cards */
+
+            .feature-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         NAVBAR
+    ========================= -->
+
+    <nav class="navbar">
+
+        <!-- Logo -->
+
+        <div class="logo">
+
+            <div class="logo-icon">
+                ✦
+            </div>
+
+            <span>
+                FlowTask
+            </span>
+
+        </div>
+
+
+        <!-- Navigation links -->
+
+        <div class="nav-links">
+
+            <a href="#">
+                Features
+            </a>
+
+            <a href="#">
+                Pricing
+            </a>
+
+            <a href="#">
+                Docs
+            </a>
+
+        </div>
+
+
+        <!-- Login and Get Started -->
+
+        <div class="nav-buttons">
+
+            <a href="#" class="login">
+                Login
+            </a>
+
+            <a href="#" class="get-started">
+                Get Started
+            </a>
+
+        </div>
+
+
+        <!-- Mobile menu -->
+
+        <div class="menu-icon">
+            ☰
+        </div>
+
+    </nav>
+
+
+
+    <!-- =========================
+         HERO SECTION
+    ========================= -->
+
+    <section class="hero">
+
+
+        <!-- LEFT SIDE -->
+
+        <div class="hero-content">
+
+            <span class="small-title">
+                Work Smarter
+            </span>
+
+
+            <h1>
+                Build Better Products
+                <br>
+                Faster With Our Platform
+            </h1>
+
+
+            <p>
+                Streamline your workflow, collaborate with your team
+                and ship faster with our all-in-one platform.
+            </p>
+
+
+            <div class="hero-buttons">
+
+                <a href="#" class="primary-btn">
+                    Get Started
+                </a>
+
+                <a href="#" class="secondary-btn">
+                    View Demo
+                </a>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- RIGHT SIDE -->
+
+        <div class="dashboard">
+
+
+            <!-- Dashboard heading -->
+
+            <div class="dashboard-header">
+
+                <span>
+                    Overview
+                </span>
+
+                <span class="dashboard-button">
+                    •••
+                </span>
+
+            </div>
+
+
+            <!-- Chart -->
+
+            <div class="chart-area">
+
+                <div class="chart-label">
+
+                    <span>
+                        Performance
+                    </span>
+
+                    <strong>
+                        84%
+                    </strong>
+
+                </div>
+
+
+                <div class="graph">
+
+                    <div class="bar bar1"></div>
+
+                    <div class="bar bar2"></div>
+
+                    <div class="bar bar3"></div>
+
+                    <div class="bar bar4"></div>
+
+                    <div class="bar bar5"></div>
+
+                    <div class="bar bar6"></div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Statistics -->
+
+            <div class="dashboard-bottom">
+
+                <div>
+
+                    <small>
+                        Users
+                    </small>
+
+                    <strong>
+                        2,450
+                    </strong>
+
+                </div>
+
+
+                <div>
+
+                    <small>
+                        Growth
+                    </small>
+
+                    <strong>
+                        +24%
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         FEATURES SECTION
+    ========================= -->
+
+    <section class="features">
+
+
+        <!-- Heading -->
+
+        <div class="section-heading">
+
+            <h2>
+                Powerful Features
+            </h2>
+
+            <p>
+                Everything you need to build, manage and grow your product.
+            </p>
+
+        </div>
+
+
+        <!-- Feature cards -->
+
+        <div class="feature-container">
+
+
+            <!-- Card 1 -->
+
+            <div class="feature-card">
+
+                <div class="feature-icon">
+                    ⚡
+                </div>
+
+                <h3>
+                    Fast & Reliable
+                </h3>
+
+                <p>
+                    Experience blazing fast performance
+                    with our powerful platform.
+                </p>
+
+            </div>
+
+
+            <!-- Card 2 -->
+
+            <div class="feature-card">
+
+                <div class="feature-icon">
+                    👥
+                </div>
+
+                <h3>
+                    Team Collaboration
+                </h3>
+
+                <p>
+                    Work together seamlessly with
+                    your entire team.
+                </p>
+
+            </div>
+
+
+            <!-- Card 3 -->
+
+            <div class="feature-card">
+
+                <div class="feature-icon">
+                    🛡
+                </div>
+
+                <h3>
+                    Secure by Design
+                </h3>
+
+                <p>
+                    Your data is protected with
+                    enterprise-grade security.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         FOOTER
+    ========================= -->
+
+    <footer>
+
+        <p>
+            © 2026 FlowTask. All rights reserved.
+        </p>
+
+    </footer>
+
+
+</body>
+
+</html>

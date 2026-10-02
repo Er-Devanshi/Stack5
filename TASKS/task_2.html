@@ -1,0 +1,950 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ShopKart - Product Listing</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f8fa;
+            color: #18253a;
+        }
+
+
+        /* ================= NAVBAR ================= */
+
+        .navbar {
+            height: 60px;
+            background-color: white;
+            border-bottom: 1px solid #e5e7eb;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 0 30px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .logo-icon {
+            width: 28px;
+            height: 28px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background-color: #3657e8;
+            color: white;
+
+            border-radius: 7px;
+        }
+
+        .search-box {
+            width: 400px;
+            height: 36px;
+
+            border: 1px solid #dfe3e8;
+            border-radius: 7px;
+
+            display: flex;
+            align-items: center;
+
+            padding: 0 12px;
+
+            color: #9aa3af;
+            font-size: 13px;
+        }
+
+        .nav-icons {
+            display: flex;
+            gap: 20px;
+            font-size: 18px;
+        }
+
+
+        /* ================= MAIN AREA ================= */
+
+        .container {
+            width: 94%;
+            max-width: 1250px;
+
+            margin: 25px auto;
+
+            display: flex;
+            gap: 25px;
+        }
+
+
+        /* ================= SIDEBAR ================= */
+
+        .sidebar {
+            width: 210px;
+
+            background-color: white;
+
+            border: 1px solid #e2e5e9;
+            border-radius: 8px;
+
+            padding: 18px;
+
+            flex-shrink: 0;
+        }
+
+        .sidebar h3 {
+            font-size: 15px;
+            margin-bottom: 20px;
+        }
+
+        .filter-title {
+            font-size: 12px;
+            font-weight: bold;
+
+            margin-bottom: 10px;
+            margin-top: 18px;
+        }
+
+        .filter-option {
+            display: flex;
+            align-items: center;
+
+            gap: 8px;
+
+            margin-bottom: 9px;
+
+            font-size: 12px;
+            color: #68758a;
+        }
+
+        .filter-option input {
+            accent-color: #3657e8;
+        }
+
+        .price {
+            color: #68758a;
+            font-size: 11px;
+        }
+
+        .apply-btn {
+            width: 100%;
+
+            margin-top: 20px;
+
+            padding: 9px;
+
+            border: none;
+            border-radius: 5px;
+
+            background-color: #3657e8;
+            color: white;
+
+            cursor: pointer;
+        }
+
+
+        /* ================= PRODUCTS AREA ================= */
+
+        .products-area {
+            flex: 1;
+        }
+
+        .top-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            margin-bottom: 18px;
+        }
+
+        .top-row p {
+            font-size: 13px;
+            color: #68758a;
+        }
+
+        .sort {
+            padding: 7px 12px;
+
+            border: 1px solid #dfe3e8;
+            border-radius: 6px;
+
+            background-color: white;
+
+            font-size: 12px;
+        }
+
+
+        /* ================= PRODUCT GRID ================= */
+
+        .product-grid {
+            display: grid;
+
+            grid-template-columns: repeat(3, 1fr);
+
+            gap: 18px;
+        }
+
+
+        /* ================= PRODUCT CARD ================= */
+
+        .product-card {
+            background-color: white;
+
+            border: 1px solid #e2e5e9;
+            border-radius: 8px;
+
+            padding: 14px;
+
+            display: flex;
+            flex-direction: column;
+
+            min-height: 330px;
+        }
+
+
+        /* Product image */
+
+        .product-image {
+            height: 150px;
+
+            background-color: #f4f7fb;
+
+            border-radius: 6px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            position: relative;
+
+            margin-bottom: 12px;
+        }
+
+        .product-image span {
+            font-size: 60px;
+        }
+
+
+        /* Sale label */
+
+        .sale {
+            position: absolute;
+
+            top: 8px;
+            left: 8px;
+
+            background-color: #dc2626;
+            color: white;
+
+            padding: 4px 7px;
+
+            border-radius: 4px;
+
+            font-size: 9px;
+            font-weight: bold;
+        }
+
+        .new {
+            position: absolute;
+
+            top: 8px;
+            left: 8px;
+
+            background-color: #16a34a;
+            color: white;
+
+            padding: 4px 7px;
+
+            border-radius: 4px;
+
+            font-size: 9px;
+            font-weight: bold;
+        }
+
+
+        /* Heart */
+
+        .heart {
+            position: absolute;
+
+            top: 8px;
+            right: 8px;
+
+            color: #9ca3af;
+
+            font-size: 16px;
+        }
+
+
+        /* Product details */
+
+        .product-info {
+            display: flex;
+            flex-direction: column;
+
+            flex: 1;
+        }
+
+        .product-name {
+            font-size: 14px;
+            font-weight: bold;
+
+            margin-bottom: 8px;
+        }
+
+        .price-row {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+
+            margin-bottom: 6px;
+        }
+
+        .price {
+            color: #18253a;
+
+            font-size: 15px;
+            font-weight: bold;
+        }
+
+        .old-price {
+            color: #9aa3af;
+
+            font-size: 11px;
+
+            text-decoration: line-through;
+        }
+
+
+        /* Rating */
+
+        .rating {
+            font-size: 11px;
+            color: #f59e0b;
+
+            margin-bottom: 12px;
+        }
+
+        .rating span {
+            color: #68758a;
+        }
+
+
+        /* Button */
+
+        .cart-btn {
+            width: 100%;
+
+            padding: 9px;
+
+            background-color: #3657e8;
+            color: white;
+
+            border: none;
+            border-radius: 5px;
+
+            font-size: 12px;
+
+            cursor: pointer;
+        }
+
+        .cart-btn:hover {
+            background-color: #2845c7;
+        }
+
+
+        /* ================= MOBILE FILTERS ================= */
+
+        .mobile-filters {
+            display: none;
+
+            gap: 10px;
+
+            margin-bottom: 15px;
+        }
+
+        .mobile-filter-btn {
+            flex: 1;
+
+            padding: 9px;
+
+            background-color: white;
+
+            border: 1px solid #dfe3e8;
+            border-radius: 6px;
+
+            font-size: 12px;
+        }
+
+
+        /* ================= TABLET ================= */
+
+        @media (max-width: 1000px) {
+
+            .search-box {
+                width: 280px;
+            }
+
+            .sidebar {
+                width: 180px;
+            }
+
+            .product-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+
+        /* ================= MOBILE ================= */
+
+        @media (max-width: 640px) {
+
+            .navbar {
+                padding: 0 15px;
+            }
+
+            .search-box {
+                display: none;
+            }
+
+            .nav-icons {
+                gap: 12px;
+            }
+
+
+            .container {
+                width: 94%;
+                margin: 15px auto;
+            }
+
+            .sidebar {
+                display: none;
+            }
+
+            .mobile-filters {
+                display: flex;
+            }
+
+            .product-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .top-row {
+                margin-bottom: 12px;
+            }
+
+            .product-card {
+                min-height: 300px;
+            }
+
+            .product-image {
+                height: 180px;
+            }
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- ================= NAVBAR ================= -->
+
+    <nav class="navbar">
+
+        <div class="logo">
+
+            <div class="logo-icon">
+                S
+            </div>
+
+            <span>
+                ShopKart
+            </span>
+
+        </div>
+
+
+        <div class="search-box">
+            Search for products...
+        </div>
+
+
+        <div class="nav-icons">
+            🛒
+            ♙
+        </div>
+
+    </nav>
+
+
+
+    <!-- ================= MAIN CONTAINER ================= -->
+
+    <div class="container">
+
+
+        <!-- ================= SIDEBAR ================= -->
+
+        <aside class="sidebar">
+
+            <h3>
+                Filters
+            </h3>
+
+
+            <p class="filter-title">
+                Category
+            </p>
+
+            <label class="filter-option">
+                <input type="checkbox">
+                Laptops
+            </label>
+
+            <label class="filter-option">
+                <input type="checkbox">
+                Desktops
+            </label>
+
+            <label class="filter-option">
+                <input type="checkbox">
+                Tablets
+            </label>
+
+            <label class="filter-option">
+                <input type="checkbox">
+                Accessories
+            </label>
+
+
+            <p class="filter-title">
+                Price Range
+            </p>
+
+            <label class="filter-option">
+                <input type="checkbox">
+                ₹0 - ₹50,000
+            </label>
+
+            <label class="filter-option">
+                <input type="checkbox">
+                ₹50,000 - ₹1,00,000
+            </label>
+
+            <label class="filter-option">
+                <input type="checkbox">
+                ₹1,00,000 - ₹1,50,000
+            </label>
+
+
+            <p class="filter-title">
+                Brand
+            </p>
+
+            <label class="filter-option">
+                <input type="checkbox">
+                Dell
+            </label>
+
+            <label class="filter-option">
+                <input type="checkbox">
+                HP
+            </label>
+
+            <label class="filter-option">
+                <input type="checkbox">
+                Lenovo
+            </label>
+
+            <label class="filter-option">
+                <input type="checkbox">
+                Apple
+            </label>
+
+
+            <button class="apply-btn">
+                Apply Filters
+            </button>
+
+        </aside>
+
+
+
+        <!-- ================= PRODUCTS ================= -->
+
+        <main class="products-area">
+
+
+            <!-- Mobile filter buttons -->
+
+            <div class="mobile-filters">
+
+                <button class="mobile-filter-btn">
+                    ☷ Filters
+                </button>
+
+                <button class="mobile-filter-btn">
+                    ↕ Sort
+                </button>
+
+            </div>
+
+
+            <!-- Top row -->
+
+            <div class="top-row">
+
+                <p>
+                    Showing 12 results
+                </p>
+
+                <select class="sort">
+
+                    <option>
+                        Sort by: Popularity
+                    </option>
+
+                    <option>
+                        Price: Low to High
+                    </option>
+
+                    <option>
+                        Price: High to Low
+                    </option>
+
+                </select>
+
+            </div>
+
+
+
+            <!-- Product Grid -->
+
+            <div class="product-grid">
+
+
+                <!-- PRODUCT 1 -->
+
+                <div class="product-card">
+
+                    <div class="product-image">
+
+                        <span>
+                            💻
+                        </span>
+
+                        <span class="sale">
+                            SALE
+                        </span>
+
+                        <span class="heart">
+                            ♡
+                        </span>
+
+                    </div>
+
+
+                    <div class="product-info">
+
+                        <h3 class="product-name">
+                            Dell Inspiron 15
+                        </h3>
+
+                        <div class="price-row">
+
+                            <span class="price">
+                                ₹45,990
+                            </span>
+
+                            <span class="old-price">
+                                ₹49,990
+                            </span>
+
+                        </div>
+
+                        <div class="rating">
+                            ★★★★★
+                            <span>(120)</span>
+                        </div>
+
+                        <button class="cart-btn">
+                            Add to Cart
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- PRODUCT 2 -->
+
+                <div class="product-card">
+
+                    <div class="product-image">
+
+                        <span>
+                            💻
+                        </span>
+
+                        <span class="new">
+                            NEW
+                        </span>
+
+                        <span class="heart">
+                            ♡
+                        </span>
+
+                    </div>
+
+
+                    <div class="product-info">
+
+                        <h3 class="product-name">
+                            HP Pavilion
+                        </h3>
+
+                        <div class="price-row">
+
+                            <span class="price">
+                                ₹52,990
+                            </span>
+
+                            <span class="old-price">
+                                ₹59,990
+                            </span>
+
+                        </div>
+
+                        <div class="rating">
+                            ★★★★☆
+                            <span>(83)</span>
+                        </div>
+
+                        <button class="cart-btn">
+                            Add to Cart
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- PRODUCT 3 -->
+
+                <div class="product-card">
+
+                    <div class="product-image">
+
+                        <span>
+                            💻
+                        </span>
+
+                        <span class="heart">
+                            ♡
+                        </span>
+
+                    </div>
+
+
+                    <div class="product-info">
+
+                        <h3 class="product-name">
+                            Lenovo IdeaPad
+                        </h3>
+
+                        <div class="price-row">
+
+                            <span class="price">
+                                ₹38,990
+                            </span>
+
+                        </div>
+
+                        <div class="rating">
+                            ★★★★★
+                            <span>(104)</span>
+                        </div>
+
+                        <button class="cart-btn">
+                            Add to Cart
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- PRODUCT 4 -->
+
+                <div class="product-card">
+
+                    <div class="product-image">
+
+                        <span>
+                            💻
+                        </span>
+
+                        <span class="heart">
+                            ♡
+                        </span>
+
+                    </div>
+
+
+                    <div class="product-info">
+
+                        <h3 class="product-name">
+                            MacBook Air M2
+                        </h3>
+
+                        <div class="price-row">
+
+                            <span class="price">
+                                ₹89,990
+                            </span>
+
+                        </div>
+
+                        <div class="rating">
+                            ★★★★★
+                            <span>(240)</span>
+                        </div>
+
+                        <button class="cart-btn">
+                            Add to Cart
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- PRODUCT 5 -->
+
+                <div class="product-card">
+
+                    <div class="product-image">
+
+                        <span>
+                            💻
+                        </span>
+
+                        <span class="new">
+                            NEW
+                        </span>
+
+                        <span class="heart">
+                            ♡
+                        </span>
+
+                    </div>
+
+
+                    <div class="product-info">
+
+                        <h3 class="product-name">
+                            ASUS VivoBook
+                        </h3>
+
+                        <div class="price-row">
+
+                            <span class="price">
+                                ₹44,990
+                            </span>
+
+                        </div>
+
+                        <div class="rating">
+                            ★★★★☆
+                            <span>(96)</span>
+                        </div>
+
+                        <button class="cart-btn">
+                            Add to Cart
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- PRODUCT 6 -->
+
+                <div class="product-card">
+
+                    <div class="product-image">
+
+                        <span>
+                            💻
+                        </span>
+
+                        <span class="heart">
+                            ♡
+                        </span>
+
+                    </div>
+
+
+                    <div class="product-info">
+
+                        <h3 class="product-name">
+                            Dell XPS 13
+                        </h3>
+
+                        <div class="price-row">
+
+                            <span class="price">
+                                ₹89,990
+                            </span>
+
+                        </div>
+
+                        <div class="rating">
+                            ★★★★★
+                            <span>(145)</span>
+                        </div>
+
+                        <button class="cart-btn">
+                            Add to Cart
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </main>
+
+    </div>
+
+</body>
+
+</html>
